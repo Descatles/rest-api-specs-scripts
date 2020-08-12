@@ -66,7 +66,6 @@ export async function main() {
       });
       if (pipelineResultDatas.length > 0) exitCode = 1;
       fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultDatas) + "\n");
-      console.log(`model validation error log: ${JSON.stringify(pipelineResultDatas)}`);
     } catch (e) {
       console.error("error: ")
       console.error(e)
