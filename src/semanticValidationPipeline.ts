@@ -175,6 +175,12 @@ export async function main() {
     } catch (e) {
       console.error("error: ");
       console.error(e);
+      errors.push({
+        error: e,
+        url: utils.blobHref(
+          utils.getGithubStyleFilePath(
+            utils.getRelativeSwaggerPathToRepo(swagger))),
+      })
     }
   }
   if (errors.length > 0) {
