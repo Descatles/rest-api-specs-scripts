@@ -79,7 +79,7 @@ export async function main() {
       if (validator.specValidationResult.resolveSpec) {
         const resolveSpecError = validator.specValidationResult.resolveSpec;
         const pipelineResultError = constructBaseResultData("Error", resolveSpecError);
-        fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultError) + "\n");
+        fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultError) + "\n");
         exitCode = 1;
       } else if (validator.specValidationResult.validateSpec) {
         const validateSpec = validator.specValidationResult.validateSpec;
@@ -101,7 +101,7 @@ export async function main() {
           });
 
           if (pipelineResultWarnings.length > 0) {
-            fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultWarnings) + "\n");
+            fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultWarnings) + "\n");
           }
 
           const validateSpecErrors = validateSpec.errors as ValidationError[];
@@ -120,7 +120,7 @@ export async function main() {
             return pipelineResultError;
           });
           if (pipelineResultErrors.length > 0) {
-            fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultErrors) + "\n");
+            fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultErrors) + "\n");
           }
           exitCode = 1;
         }
