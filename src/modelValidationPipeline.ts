@@ -110,7 +110,7 @@ export async function main() {
         return pipelineResultData;
       });
       if (pipelineResultDatas.length > 0) {
-        fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultDatas) + "\n");
+        fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultDatas) + "\n");
         exitCode = 1;
       }
     } catch (e) {

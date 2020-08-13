@@ -116,7 +116,7 @@ export async function main() {
         const pipelineResultError = constructBaseResultData("Error", resolveSpecError);
         console.log(vsoLogIssueWrapper("error", `Semantically validating  ${swagger}:\n`));
         prettyPrint([resolveSpecError], "error");
-        fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultError) + "\n");
+        fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultError) + "\n");
         exitCode = 1;
       } else if (validator.specValidationResult.validateSpec) {
         const validateSpec = validator.specValidationResult.validateSpec;
@@ -140,7 +140,7 @@ export async function main() {
           if (pipelineResultErrors.length > 0) {
             console.log(vsoLogIssueWrapper("error", `Semantically validating  ${swagger}:\n`));
             prettyPrint(validateSpec.errors as ValidationEntry[], "error");
-            fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultErrors) + "\n");
+            fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultErrors) + "\n");
           }
 
           const validateSpecWarnings = validateSpec.warnings as ValidationError[];
@@ -162,7 +162,7 @@ export async function main() {
           if (pipelineResultWarnings.length > 0) {
             console.log(vsoLogIssueWrapper("warning", `Semantically validating  ${swagger}:\n`));
             prettyPrint(validateSpec.warnings as ValidationEntry[], "error");
-            fs.appendFileSync("pipe.json", JSON.stringify(pipelineResultWarnings) + "\n");
+            fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultWarnings) + "\n");
           }
 
           exitCode = 1;
