@@ -133,7 +133,7 @@ export async function main() {
       message: it.error.stack || "",
       time: new Date(),
       extra: {
-        role: "Breaking change",
+        role: "Model Validation",
         url: it.url,
       },
     }));
