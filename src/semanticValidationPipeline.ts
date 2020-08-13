@@ -161,7 +161,7 @@ export async function main() {
 
           if (pipelineResultWarnings.length > 0) {
             console.log(vsoLogIssueWrapper("warning", `Semantically validating  ${swagger}:\n`));
-            prettyPrint(validateSpec.warnings as ValidationEntry[], "error");
+            prettyPrint(validateSpec.warnings as ValidationEntry[], "warning");
             fs.appendFileSync("pipe.log", JSON.stringify(pipelineResultWarnings) + "\n");
           }
 
