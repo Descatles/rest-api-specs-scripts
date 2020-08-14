@@ -44,7 +44,7 @@ const prettyPrint = <T extends oav.NodeError<T>>(
   }
 }
 
-export async function main() {
+export async function runScript() {
   const pr = await devOps.createPullRequestProperties(cli.defaultConfig());
   const swaggersToProcess = await utils.getFilesChangedInPR(pr);
 

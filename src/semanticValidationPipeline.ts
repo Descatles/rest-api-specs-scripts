@@ -86,7 +86,7 @@ function constructBaseResultData(level: string, error: ValidationError | Validat
   return pipelineResultData;
 }
 
-export async function main() {
+export async function runScript() {
   const pr = await devOps.createPullRequestProperties(cli.defaultConfig())
   let swaggersToProcess = await utils.getFilesChangedInPR(pr);
   swaggersToProcess = swaggersToProcess.filter(function (item) {
